@@ -16,5 +16,19 @@ class MedianTest : FreeSpec({
         }
     }
 
-    // Write four more tests here
+    "Median of one element is that element" {
+        median(listOf(-2.75f)) shouldBe (-2.75f plusOrMinus tolerance)
+    }
+
+    "Median of two elements preserves the fractional average" {
+        median(listOf(9.0f, 2.0f)) shouldBe (5.5f plusOrMinus tolerance)
+    }
+
+    "Median of three unsorted elements is the middle sorted value" {
+        median(listOf(11.0f, 2.0f, 4.0f)) shouldBe (4.0f plusOrMinus tolerance)
+    }
+
+    "Median of four unsorted elements averages only the middle pair" {
+        median(listOf(20.0f, 8.0f, 1.0f, 3.0f)) shouldBe (5.5f plusOrMinus tolerance)
+    }
 })
